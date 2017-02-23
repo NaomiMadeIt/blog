@@ -1,0 +1,80 @@
+html {
+  background: lemonchiffon;
+  box-sizing: border-box;
+}
+
+html * {
+  box-sizing: inherit;
+}
+
+body {
+  background: white;
+  max-width: 750px;
+  margin: 0 auto;
+  font-family: Calibri, Arial, sans-serif;
+}
+
+#sidebar {
+  background: rgba(30, 144, 255, 0.2);
+}
+
+#content,
+#sidebar,
+#footer {
+  padding: 1em;
+}
+
+#header {
+  min-height: 200px;
+  background: dodgerblue;
+  text-align: center;
+}
+#header h1 {
+  padding-top: 100px;
+  color: white;
+  margin: 0;
+}
+
+#footer {
+  background: #002951;
+  color: white;
+}
+
+h1,
+h2 {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+a {
+  color: darkslateblue;
+}
+
+.morecontent span {
+  display: none;
+}
+
+/* ==form controls */
+input, textarea, label{
+  display: block;
+  width:100%;
+  margin:.2em 0;
+}
+
+
+
+@media screen and (min-width: 550px) {
+  #content {
+    width: 65%;
+    float: right;
+  }
+
+  #sidebar {
+    width: 35%;
+    float: left;
+    font-size: .9em;
+  }
+
+  #footer {
+    clear: both;
+  }
+}
