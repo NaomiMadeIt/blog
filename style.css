@@ -1,76 +1,80 @@
 html {
-  background-color: #E2B8AE;
+  background: lemonchiffon;
   box-sizing: border-box;
-  color: #685A50;
 }
-html > * {
+
+html * {
   box-sizing: inherit;
 }
+
 body {
-  max-width: 1000px;
+  background: white;
+  max-width: 750px;
   margin: 0 auto;
-  font-family: 'Calibri', Arial, sans-serif;
-  background-color: #FFFFF7;
-  /*padding: 1em;*/
+  font-family: Calibri, Arial, sans-serif;
 }
-header{
-  background-color: #A58F7F;
-  color: #FFFFF7;
+
+#sidebar {
+  background: rgba(30, 144, 255, 0.2);
+}
+
+#content,
+#sidebar,
+#footer {
   padding: 1em;
 }
-aside {
-  background-color: #FFEAE9;
+
+#header {
+  min-height: 200px;
+  background: dodgerblue;
+  text-align: center;
 }
-footer{
-  background-color: #685A50;
-  padding: 1em;
-  color: #FFFFF7;
+#header h1 {
+  padding-top: 100px;
+  color: white;
+  margin: 0;
 }
-/*a {
-  text-decoration: none;
-}*/
-h1 {
-  font-family: 'Montserrat', 'Calibri', Arial, sans-serif;
+
+#footer {
+  background: #002951;
+  color: white;
 }
-h1 a {
-  color: #FFFFF7;
-}
-h1 a:hover, h1 a:focus {
-  color: #FFFFF7;
-}
+
+h1,
 h2 {
-  font-family: 'Montserrat', 'Calibri', Arial, sans-serif;
-  color: #AC827F;
+  font-family: Montserrat, Arial, sans-serif;
 }
+
 a {
-  color: #54403F;
+  color: darkslateblue;
 }
-a:hover, a:focus {
-  color: #AC827F;
+
+.morecontent span {
+  display: none;
 }
-main h2, main h2 a {
-  color: #AC827F;
-}
-main h2 a:hover, main h2 a:focus {
-  color: #784944;
-}
-/*form controls*/
-input, textarea, label {
+
+/* ==form controls */
+input, textarea, label{
   display: block;
-  width: 97%;
-  margin: .2em 0;
+  width:100%;
+  margin:.2em 0;
 }
-@media screen and (min-width: 500px){
-  main {
+
+
+
+@media screen and (min-width: 550px) {
+  #content {
     width: 65%;
     float: right;
   }
-  aside {
-    width: 32%;
+
+  #sidebar {
+    width: 35%;
     float: left;
-    padding-left: 1em;
+    font-size: .9em;
   }
-  footer {
+
+  #footer {
     clear: both;
   }
 }

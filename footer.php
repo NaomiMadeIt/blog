@@ -1,4 +1,4 @@
-<footer>
+<footer id="footer">
 </small>&copy; 2017 Edna Cartas</small>
 </footer>
 </body>

@@ -1,4 +1,4 @@
-<aside>
+<aside id="sidebar">
   <nav>
     <ul>
       <li><a href="admin/">Admin Panel</a></li>

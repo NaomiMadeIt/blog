@@ -6,7 +6,7 @@ include_once('functions.php');
 include('header.php');
  ?>
 
-    <main>
+    <main id="content">
       <?php
       //Get the most recent 2 published posts
       $query = "SELECT posts.title, posts.date, posts.body, categories.name, users.username, posts.post_id

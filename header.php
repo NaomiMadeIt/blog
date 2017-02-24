@@ -12,6 +12,6 @@ error_reporting( E_ALL & ~E_NOTICE );
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <header id="header">
       <h1><a href="index.php">My Awesome Blog</a></h1>
     </header>
