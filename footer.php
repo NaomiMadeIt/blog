@@ -1,11 +1,8 @@
-<footer id="footer">
-	<small>&copy;2017 Platt College WIP400</small>
+<footer>
+</small>&copy; 2017 Edna Cartas</small>
 </footer>
-
-
 </body>
 </html>
-<?php 
+<?php
 //end the open DB connection
-$db->close(); 
-?>
+$db->close(); ?>

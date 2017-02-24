@@ -12,12 +12,10 @@ body {
   font-family: 'Open Sans', arial, sans-serif;
   color: darkslategray;
 }
-
-body.login{
+body.login {
   max-width: 25em;
   margin: 0 auto;
 }
-
 /* general utility classes */
 .warn {
   color: tomato;
@@ -154,7 +152,8 @@ b {
 }
 
 /* lists */
-nav ul, nav li {
+nav ul,
+nav li {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -213,7 +212,6 @@ form input[type=submit] {
   -ms-border-radius: .5em;
   border-radius: .5em;
 }
-
 /* feedback */
 .error {
   background-color: #ffe9e0;
@@ -275,7 +273,6 @@ label.error {
 .feedback.success li:before {
   border-left-color: #6ce7db;
 }
-
 /* tables */
 table {
   border-collapse: collapse;

@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Login to your account</title>
+  <link rel="stylesheet" type="text/css" href="admin/css/admin-style.css">
 </head>
-<body>
+<body class="login">
   <!-- <pre>
     <?php
     //lets just look at the post array
@@ -19,7 +20,7 @@
   ?>
 
   <form method="post" action="login.php">
-
+ 
     <label for="the_username">Username</label>
     <input type="text" name="username" id="the_username">
 

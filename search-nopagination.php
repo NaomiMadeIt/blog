@@ -4,18 +4,18 @@ require('db-config.php');
 include_once('functions.php');
 //get the doctype and header area
 include('header.php');
+
+//Extract the keywords that the user is searching for
+$keywords = clean_string( $_GET['keywords'] );
  ?>
 
     <main>
       <?php
-      //Get the most recent 2 published posts
-      $query = "SELECT posts.title, posts.date, posts.body, categories.name, users.username, posts.post_id
-                FROM posts, categories, users
-                WHERE posts.is_published = 1
-                AND posts.category_id = categories.category_id
-                AND posts.user_id = users.user_id
-                ORDER BY posts.date DESC
-                LIMIT 2";
+      //Get all the published posts that contain the keywords in their title or body
+      $query = "SELECT DISTINCT *
+                FROM posts
+                WHERE is_published = 1
+                AND ( title LIKE '%$keywords%' OR body LIKE '%$keywords%')";
       //run the query. catch the returned info in a result
       $result = $db->query($query);
 
@@ -31,9 +31,8 @@ include('header.php');
           </a>
         </h2>
         <div class="post-info">
-          Written by <?php echo $row['username'] ?>
-          on <?php echo convertTimestamp($row['date']); ?>
-          in <?php echo $row['name'] ?></div>
+          <?php echo convertTimestamp($row['date']); ?>
+        </div>
         <p><?php echo $row['body']; ?></p>
       </article>
       <?php

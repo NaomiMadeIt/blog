@@ -24,9 +24,31 @@ if( $_POST['did_login'] ){
     $result = $db->query($query);
 
     if( $result->num_rows == 1 ){
+      //SUCCESS!
       //remember the user for 1 week
-      setcookie('loggedin', true, time() + 60 * 60 * 24 * 7 );
-      $_SESSION['logged_in'] = true;
+      $security_key = sha1( microtime() . SALT );
+      //store it in the DB for this user
+      $row = $result->fetch_assoc();
+      $user_id = $row['user_id'];
+
+      $query = "UPDATE users
+                SET security_key = '$security_key'
+                WHERE user_id = $user_id
+                LIMIT 1";
+      $result = $db->query($query);
+
+      $expiration = time() + 60 * 60 * 24 * 7;
+
+      setcookie('security_key', $security_key, $expiration );
+      $_SESSION['security_key'] = $security_key;
+
+      setcookie('user_id', $user_id, $expiration );
+      $_SESSION['user_id'] = $user_id;
+
+      //make sure the query worked
+      if( ! $result){
+        die( $db->error );
+      }
       //send to secret page
       header('location:admin');
     }else{
@@ -42,7 +64,15 @@ if( $_POST['did_login'] ){
 //is the user trying to log out?
 //URL looks like ...login.php?action=logout
 if( $_GET['action'] == 'logout' ){
-  //from php.net
+  //remove the security key from the DB
+  $user_id = $_SESSION['user_id'];
+  $query = "UPDATE users
+            SET security_key = ''
+            WHERE user_id = $user_id
+            LIMIT 1";
+$result = $db->query($query);
+
+  //from php.net session_destroy docs
   // Unset all of the session variables.
 $_SESSION = array();
 
@@ -59,7 +89,9 @@ if (ini_get("session.use_cookies")) {
   //destroy the session
   session_destroy();
   //expire the cookies
-  setcookie('loggedin', '', time() - 99999);
+  setcookie('security_key', '', time() - 99999);
+  setcookie('user_id', '', time() - 99999);
+
 
 } //end of logout logic
 
