@@ -65,6 +65,10 @@ header[role=banner] .utilities li a {
   content: "";
 }
 
+.blog a:before{
+  content: "\f015";
+}
+
 nav[role=navigation] {
   background: #2a3542;
   color: #ddd;

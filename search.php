@@ -85,11 +85,11 @@ $current_page = 1;
       <?php
     } // end if the user is on a valid page
     else{
-      echo 'Invalid page';
+      show_feedback('Invalid page');
     }
   } //end if there are posts
   else{
-    echo 'Sorry, no posts to show.';
+    show_feedback('Sorry, no posts to show.');
   } ?>
 
   <a href="blog.php">Read All Posts</a>

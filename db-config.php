@@ -14,3 +14,5 @@ if( $db->connect_errno > 0 ){
 
 //salt for making our passwords stronger. Keep salts a secret!
 define('SALT', 'ldsjflajlfkj@suajldf$$$$$ha7fjs()DSFSJKELFiejafji*$91113344osi7jaesa!FS(1i#a#flndfdksdfjaaakfj');
+
+error_reporting( E_ALL & ~E_NOTICE );

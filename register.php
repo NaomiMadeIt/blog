@@ -90,21 +90,9 @@ if( $_POST['did_register']){
   </head>
   <body class="login">
     <h1>Create an Account</h1>
-    <?php
-    if( isset($feedback) ){
-      echo '<div class="feedback">';
-      echo $feedback;
-      //if there are errors, show them as a list
-      if( ! empty($errors) ){
-        echo '<ul>';
-        foreach ($errors as $error) {
-          echo '<li>' . $error . '</li>';
-        }
-        echo '</ul>';
-      }
-      echo '</div>';
-    }
-    ?>
+    
+    <?php show_feedback( $feedback, $errors ); ?>
+
     <form action="register.php" method="post">
       <label for="the_username">Choose a Username</label>
       <input type="text" name="username" id="the_username">

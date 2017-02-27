@@ -17,11 +17,9 @@
     <?php
     //get the 5 latest published post titles
     //TODO: make this show the posts that have 0 comments
-    $query = "SELECT posts.title, COUNT(*) AS total, posts.post_id
-              FROM posts, comments
-              WHERE posts.post_id = comments.post_id
-              AND posts.is_published = 1
-              GROUP BY comments.post_id
+    $query = "SELECT posts.title, posts.post_id
+              FROM posts
+              WHERE posts.is_published = 1
               ORDER BY posts.date DESC
               LIMIT 5";
     //run it
@@ -36,7 +34,7 @@
     while( $row = $result->fetch_assoc() ){ ?>
     <li><a href="single.php?post_id=<?php echo $row['post_id']; ?>">
       <?php echo $row['title']; ?>
-      </a> - <?php echo $row['total']; ?> comments
+    </a> - <?php count_comments( $row['post_id'] ); ?>
     </li>
     <?php } //end while
     //free it after a select

@@ -38,6 +38,7 @@ if( $result->num_rows == 1 ){
   <h1>Admin Panel</h1>
   <ul class="utilities">
     <li class="users"><a href="#">Logged in as: <?php echo USERNAME; ?></a></li>
+		<li class="blog"><a href="../">Back to Blog</a></li>
     <li class="logout warn"><a href="../login.php?action=logout">Log Out</a></li>
   </ul>
 </header>

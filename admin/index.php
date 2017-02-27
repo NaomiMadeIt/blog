@@ -30,8 +30,8 @@ include('admin-header.php');
   <section class="panel">
 			<h2>Your Content:</h2>
 			<ul>
-				<li>You have written XX published posts</li>
-				<li>You have written XX Post Drafts</li>
+				<li>You have written <?php count_posts_by_user( USER_ID, 1); ?> published posts</li>
+				<li>You have written <?php count_posts_by_user( USER_ID, 0); ?> Post Drafts</li>
 				<li>Latest Draft: POST TITLE</li>
 			</ul>
 
