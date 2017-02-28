@@ -7,17 +7,34 @@ include('admin-header.php');
 include('admin-nav.php');
 include('admin-nav.php');
 
+//pre-fill the form with THIS post
+//url looks like: admin-edit.php?post_id=5
+$post_id = $_GET['post_id'];
+$query = "SELECT * FROM posts
+          WHERE post_id = $post_id
+          LIMIT 1";
+$result = $db->query($query);
+if( $result->num_rows == 1 ){
+  $row              = $result->fetch_assoc();
+
+  $title            = $row['title'];
+  $body             = $row['body'];
+  $category_id      = $row['category_id'];
+  $allow_comments   = $row['allow_comments'];
+  $is_published     = $row['is_published'];
+}
+
 //parse the form!
-include('admin-write-parser.php');
+include('admin-edit-parser.php');
 ?>
 
 <main role="main">
   <section class="panel important">
-    <h2>Write Post</h2>
+    <h2>Edit Post</h2>
 
     <?php show_feedback( $feedback, $errors ); ?>
 
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'] ; ?>">
       <div class="twothirds">
         <label>Title</label>
         <input type="text" name="title" value="<?php echo $title; ?>"/>
