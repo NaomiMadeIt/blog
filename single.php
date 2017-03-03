@@ -71,7 +71,7 @@ if( $_POST['did_comment'] ){
 
     <main>
       <?php //get all the information about the post we are trying to show (make sure it's published)
-      $query = "SELECT posts.title, posts.body, users.username, posts.date
+      $query = "SELECT posts.title, posts.body, users.username, posts.date, users.user_id
                 FROM posts, users
                 WHERE posts.user_id = users.user_id
                 AND posts.is_published = 1
@@ -88,6 +88,8 @@ if( $_POST['did_comment'] ){
         <h2><?php echo $row['title']; ?></h2>
         <p><?php echo $row['body']; ?></p>
         <div class="post-info">
+            <?php show_userpic( $row['user_id'], 'small' ); ?>
+            <br />
             By <?php echo $row['username']; ?>
             on <?php echo convertTimestamp($row['date']); ?>
         </div>

@@ -15,4 +15,7 @@ if( $db->connect_errno > 0 ){
 //salt for making our passwords stronger. Keep salts a secret!
 define('SALT', 'ldsjflajlfkj@suajldf$$$$$ha7fjs()DSFSJKELFiejafji*$91113344osi7jaesa!FS(1i#a#flndfdksdfjaaakfj');
 
+define('ROOT_URL', 'http://localhost/naomi-php/blog/');
+define('ROOT_PATH', 'C:\xampp\htdocs\naomi-php\blog');
+
 error_reporting( E_ALL & ~E_NOTICE );

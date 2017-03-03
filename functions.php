@@ -129,5 +129,28 @@ function count_comments( $post_id ){
     }
  }
 
+/**
+ * Display an <img /> for any user's pic at any known size
+ */
+function show_userpic( $user_id, $size ){
+  global $db;
+  $query = "SELECT userpic, username
+            FROM users
+            WHERE user_id = $user_id
+            LIMIT 1";
+
+  $result = $db->query($query);
+  if( $result->num_rows == 1 ){
+    //display the image if it exists, otherwise show the default userpic
+    $row = $result->fetch_assoc();
+    if( $row['userpic'] != '' ){
+      echo '<img src="' . ROOT_URL .'uploads/' . $row['userpic'] . '_' . $size . '.jpg" class="userpic" alt="' . $row['username'] . '\'s profile picture" />';
+    }else{
+      echo '<img src=" ' . ROOT_URL . 'images/default_' . $size . '.jpg" class="userpic" alt="default userpic" />';
+    }
+  }
+}
+
+
 
 //no close PHP here

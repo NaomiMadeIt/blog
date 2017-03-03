@@ -90,7 +90,7 @@ if( $_POST['did_register']){
   </head>
   <body class="login">
     <h1>Create an Account</h1>
-    
+
     <?php show_feedback( $feedback, $errors ); ?>
 
     <form action="register.php" method="post">
